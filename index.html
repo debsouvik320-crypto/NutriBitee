@@ -1,0 +1,3400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>NutriBite — Premium Bakery & Snacks</title>
+
+<meta name="description" content="NutriBite — premium biscuits, cookies, thekua, cakes and delicious bakery snacks.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   NUTRIBITE
+   MOBILE-FIRST RESPONSIVE DESIGN
+========================================================= */
+
+:root{
+  --cream:#f8f3e9;
+  --cream2:#eee5d5;
+  --white:#fffdf9;
+
+  --brown:#2b211c;
+  --brown2:#4b3529;
+  --chocolate:#633d2b;
+
+  --gold:#c49a58;
+  --gold-light:#e1c28b;
+
+  --muted:#81766c;
+  --line:rgba(74,52,39,.13);
+
+  --shadow:0 20px 55px rgba(55,38,26,.12);
+  --shadow-dark:0 20px 55px rgba(0,0,0,.22);
+
+  --radius:24px;
+
+  --nav-height:68px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+}
+
+body{
+  font-family:"DM Sans",sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(196,154,88,.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(99,61,43,.08),
+      transparent 30%
+    ),
+    var(--cream);
+
+  color:var(--brown);
+  line-height:1.6;
+
+  overflow-x:hidden;
+
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+body.modal-open{
+  overflow:hidden;
+}
+
+img{
+  display:block;
+  width:100%;
+  max-width:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+button,
+a{
+  touch-action:manipulation;
+}
+
+ul{
+  padding:0;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+  width:calc(100% - 28px);
+  max-width:1180px;
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   NAVBAR — MOBILE FIRST
+========================================================= */
+
+.navbar{
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:1000;
+
+  background:rgba(248,243,233,.92);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(74,52,39,.10);
+}
+
+.nav-inner{
+  min-height:var(--nav-height);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:12px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+
+  gap:9px;
+
+  font-size:19px;
+  font-weight:700;
+
+  white-space:nowrap;
+}
+
+.logo-icon{
+  width:38px;
+  height:38px;
+
+  flex:0 0 38px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--chocolate)
+    );
+
+  color:white;
+
+  box-shadow:
+    0 7px 20px rgba(75,53,41,.20);
+}
+
+.menu-btn{
+  width:44px;
+  height:44px;
+
+  display:grid;
+  place-items:center;
+
+  border:0;
+  border-radius:13px;
+
+  background:rgba(255,255,255,.65);
+
+  color:var(--brown);
+
+  font-size:24px;
+
+  transition:.25s;
+}
+
+.menu-btn:hover,
+.menu-btn:active{
+  background:white;
+}
+
+.nav-links{
+  position:absolute;
+
+  top:calc(100% + 8px);
+  left:14px;
+  right:14px;
+
+  display:none;
+
+  flex-direction:column;
+
+  gap:4px;
+
+  padding:12px;
+
+  list-style:none;
+
+  background:rgba(255,255,255,.97);
+
+  border:1px solid rgba(74,52,39,.10);
+
+  border-radius:20px;
+
+  box-shadow:var(--shadow);
+
+  backdrop-filter:blur(18px);
+}
+
+.nav-links.open{
+  display:flex;
+}
+
+.nav-links a{
+  display:flex;
+  align-items:center;
+
+  min-height:46px;
+
+  padding:10px 13px;
+
+  border-radius:12px;
+
+  color:#66594f;
+
+  font-size:14px;
+  font-weight:600;
+
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  background:var(--cream);
+  color:var(--chocolate);
+}
+
+.nav-cta{
+  justify-content:center;
+
+  color:white!important;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--chocolate)
+    )!important;
+
+  box-shadow:
+    0 7px 20px rgba(58,38,27,.18);
+}
+
+
+/* =========================================================
+   HERO — MOBILE FIRST
+========================================================= */
+
+.hero{
+  position:relative;
+
+  min-height:auto;
+
+  padding:
+    calc(var(--nav-height) + 48px)
+    0
+    55px;
+
+  display:flex;
+  align-items:center;
+}
+
+.hero::before{
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  right:-160px;
+  top:120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(196,154,88,.16),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+.hero-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:42px;
+
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+
+  gap:8px;
+
+  padding:8px 13px;
+
+  border-radius:30px;
+
+  background:rgba(99,61,43,.08);
+
+  color:var(--chocolate);
+
+  font-size:10px;
+  font-weight:700;
+
+  letter-spacing:.8px;
+  text-transform:uppercase;
+
+  margin-bottom:18px;
+}
+
+.eyebrow span{
+  width:7px;
+  height:7px;
+
+  flex:0 0 7px;
+
+  background:var(--gold);
+
+  border-radius:50%;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(46px,13vw,72px);
+
+  line-height:.98;
+
+  letter-spacing:-2.5px;
+
+  margin-bottom:20px;
+}
+
+.hero h1 em{
+  color:var(--chocolate);
+  font-style:normal;
+}
+
+.hero-text{
+  max-width:550px;
+
+  color:var(--muted);
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  margin-bottom:25px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+
+  width:100%;
+}
+
+.btn{
+  min-height:48px;
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  padding:13px 20px;
+
+  border-radius:50px;
+
+  border:0;
+
+  font-size:14px;
+  font-weight:700;
+
+  transition:.3s;
+
+  text-align:center;
+}
+
+.btn-primary{
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--chocolate)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(64,42,29,.20);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,.60);
+
+  border:1px solid var(--line);
+
+  color:var(--brown);
+}
+
+.btn-secondary:hover{
+  background:white;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image-wrap{
+  position:relative;
+
+  width:100%;
+
+  padding-bottom:12px;
+}
+
+.hero-image{
+  width:100%;
+
+  height:auto;
+
+  aspect-ratio:1 / 1.05;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:28px;
+
+  box-shadow:var(--shadow);
+
+  border:5px solid rgba(255,255,255,.65);
+}
+
+.image-badge{
+  position:absolute;
+
+  left:12px;
+  bottom:0;
+
+  max-width:calc(100% - 24px);
+
+  padding:13px 15px;
+
+  border-radius:17px;
+
+  background:rgba(255,255,255,.94);
+
+  backdrop-filter:blur(15px);
+
+  box-shadow:
+    0 15px 40px rgba(55,38,26,.15);
+
+  border:1px solid rgba(255,255,255,.7);
+}
+
+.image-badge strong{
+  display:block;
+
+  font-size:15px;
+}
+
+.image-badge small{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--brown),
+      var(--chocolate),
+      var(--brown)
+    );
+
+  color:white;
+
+  padding:13px 0;
+}
+
+.marquee-track{
+  display:flex;
+
+  width:max-content;
+
+  animation:
+    marquee 28s linear infinite;
+}
+
+.marquee-item{
+  padding:0 22px;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:1.2px;
+
+  text-transform:uppercase;
+
+  white-space:nowrap;
+}
+
+@keyframes marquee{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+  padding:72px 0;
+}
+
+.section-head{
+  display:block;
+
+  margin-bottom:35px;
+}
+
+.section-label{
+  color:var(--gold);
+
+  font-size:11px;
+
+  font-weight:700;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  margin-bottom:10px;
+}
+
+.section-title{
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(36px,10vw,58px);
+
+  line-height:1.05;
+
+  letter-spacing:-1.5px;
+}
+
+.section-description{
+  max-width:480px;
+
+  color:var(--muted);
+
+  font-size:14px;
+
+  margin-top:16px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about{
+  background:
+    linear-gradient(
+      180deg,
+      var(--white),
+      #f5eee2
+    );
+}
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:38px;
+
+  align-items:center;
+}
+
+.about-image{
+  width:100%;
+
+  height:auto;
+
+  aspect-ratio:1 / 1.05;
+
+  object-fit:cover;
+
+  border-radius:27px;
+
+  box-shadow:var(--shadow);
+}
+
+.about-content p{
+  color:var(--muted);
+
+  font-size:14px;
+
+  margin:17px 0;
+}
+
+.stats{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:10px;
+
+  margin-top:27px;
+}
+
+.stat{
+  padding:18px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.70);
+
+  border:1px solid var(--line);
+
+  box-shadow:
+    0 10px 30px rgba(55,38,26,.05);
+}
+
+.stat strong{
+  display:block;
+
+  font-family:"Playfair Display",serif;
+
+  font-size:27px;
+
+  color:var(--chocolate);
+}
+
+.stat span{
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products{
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(196,154,88,.12),
+      transparent 25%
+    ),
+    var(--cream);
+}
+
+
+/* FILTERS */
+
+.filter-buttons{
+  display:flex;
+
+  flex-wrap:nowrap;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding:2px 2px 10px;
+
+  margin-bottom:25px;
+
+  scrollbar-width:none;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.filter-buttons::-webkit-scrollbar{
+  display:none;
+}
+
+.filter-btn{
+  flex:0 0 auto;
+
+  min-height:40px;
+
+  padding:9px 15px;
+
+  border-radius:30px;
+
+  border:1px solid var(--line);
+
+  background:rgba(255,255,255,.55);
+
+  color:var(--muted);
+
+  font-size:12px;
+  font-weight:600;
+
+  white-space:nowrap;
+
+  transition:.25s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--chocolate)
+    );
+
+  border-color:transparent;
+
+  box-shadow:
+    0 7px 18px rgba(55,38,26,.15);
+}
+
+
+/* PRODUCT GRID */
+
+.product-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:15px;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card{
+  overflow:hidden;
+
+  background:rgba(255,255,255,.82);
+
+  border:1px solid rgba(74,52,39,.10);
+
+  border-radius:23px;
+
+  transition:.3s;
+
+  box-shadow:
+    0 8px 28px rgba(55,38,26,.05);
+}
+
+.product-card:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 20px 45px rgba(55,38,26,.12);
+}
+
+.product-image{
+  width:100%;
+
+  height:auto;
+
+  aspect-ratio:1 / .78;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  transition:.45s;
+}
+
+.product-card:hover .product-image{
+  transform:scale(1.03);
+}
+
+.product-info{
+  padding:17px;
+}
+
+.product-category{
+  color:var(--gold);
+
+  font-size:9px;
+
+  font-weight:700;
+
+  letter-spacing:1.1px;
+
+  text-transform:uppercase;
+}
+
+.product-name{
+  font-family:"Playfair Display",serif;
+
+  font-size:22px;
+
+  line-height:1.15;
+
+  margin:6px 0;
+}
+
+.product-description{
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.55;
+
+  margin-bottom:15px;
+}
+
+.product-bottom{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:8px;
+}
+
+.price{
+  color:var(--chocolate);
+
+  font-size:17px;
+
+  font-weight:700;
+
+  white-space:nowrap;
+}
+
+.view-btn{
+  min-height:40px;
+
+  border:0;
+
+  padding:9px 15px;
+
+  border-radius:30px;
+
+  background:var(--cream2);
+
+  color:var(--brown);
+
+  font-size:12px;
+  font-weight:700;
+
+  transition:.25s;
+}
+
+.view-btn:hover,
+.view-btn:active{
+  background:var(--brown);
+  color:white;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf9,
+      #f3eadc
+    );
+}
+
+.feature-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:13px;
+}
+
+.feature-card{
+  padding:23px;
+
+  border-radius:21px;
+
+  background:rgba(255,255,255,.72);
+
+  border:1px solid var(--line);
+
+  transition:.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+
+  background:white;
+
+  box-shadow:var(--shadow);
+}
+
+.feature-icon{
+  width:48px;
+  height:48px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:14px;
+
+  background:rgba(196,154,88,.14);
+
+  font-size:21px;
+
+  margin-bottom:16px;
+}
+
+.feature-card h3{
+  font-size:16px;
+
+  margin-bottom:7px;
+}
+
+.feature-card p{
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.6;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story{
+  color:white;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(196,154,88,.14),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #241b17,
+      #3a261d
+    );
+}
+
+.story-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:40px;
+
+  align-items:center;
+}
+
+.story .section-label{
+  color:var(--gold-light);
+}
+
+.story .section-title{
+  color:white;
+}
+
+.story p{
+  color:rgba(255,255,255,.68);
+
+  font-size:14px;
+
+  margin:18px 0;
+}
+
+.story-image{
+  width:100%;
+
+  height:auto;
+
+  aspect-ratio:1 / 1.05;
+
+  object-fit:cover;
+
+  border-radius:27px;
+
+  border:5px solid rgba(255,255,255,.08);
+
+  box-shadow:var(--shadow-dark);
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.reviews{
+  background:var(--cream);
+}
+
+.review-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:13px;
+}
+
+.review{
+  padding:23px;
+
+  background:rgba(255,255,255,.75);
+
+  border:1px solid var(--line);
+
+  border-radius:21px;
+
+  box-shadow:
+    0 10px 30px rgba(55,38,26,.04);
+}
+
+.stars{
+  color:var(--gold);
+
+  letter-spacing:3px;
+
+  margin-bottom:14px;
+}
+
+.review p{
+  color:#62574f;
+
+  font-size:13px;
+
+  line-height:1.65;
+
+  margin-bottom:17px;
+}
+
+.review-user{
+  font-size:14px;
+  font-weight:700;
+}
+
+.review-user span{
+  display:block;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+  background:white;
+}
+
+.cta-box{
+  position:relative;
+
+  overflow:hidden;
+
+  padding:45px 20px;
+
+  border-radius:29px;
+
+  color:white;
+
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(225,194,139,.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #35231b,
+      #65402c
+    );
+
+  box-shadow:var(--shadow-dark);
+}
+
+.cta-box h2{
+  font-family:"Playfair Display",serif;
+
+  font-size:clamp(37px,10vw,62px);
+
+  line-height:1;
+
+  margin-bottom:17px;
+}
+
+.cta-box p{
+  max-width:580px;
+
+  margin:0 auto 23px;
+
+  color:rgba(255,255,255,.72);
+
+  font-size:13px;
+}
+
+.whatsapp-btn{
+  width:100%;
+  max-width:280px;
+
+  background:white;
+
+  color:var(--brown);
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-2px);
+
+  background:#fffaf0;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:48px 0 22px;
+
+  color:white;
+
+  background:#1b1512;
+}
+
+.footer-grid{
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  gap:30px;
+
+  padding-bottom:35px;
+}
+
+.footer-about{
+  max-width:300px;
+
+  color:rgba(255,255,255,.55);
+
+  font-size:12px;
+
+  line-height:1.7;
+}
+
+footer h4{
+  margin-bottom:13px;
+
+  font-size:14px;
+}
+
+footer ul{
+  list-style:none;
+}
+
+footer li{
+  margin:8px 0;
+}
+
+footer li a{
+  color:rgba(255,255,255,.55);
+
+  font-size:12px;
+
+  transition:.2s;
+}
+
+footer li a:hover{
+  color:white;
+}
+
+.copyright{
+  padding-top:20px;
+
+  border-top:1px solid rgba(255,255,255,.10);
+
+  color:rgba(255,255,255,.38);
+
+  text-align:center;
+
+  font-size:10px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:2000;
+
+  display:none;
+
+  align-items:flex-end;
+
+  justify-content:center;
+
+  padding:10px;
+
+  background:rgba(24,16,12,.75);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  position:relative;
+
+  width:100%;
+  max-width:700px;
+
+  max-height:92vh;
+
+  overflow-y:auto;
+
+  padding:20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffdf9,
+      #f6eee2
+    );
+
+  border-radius:27px 27px 20px 20px;
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.3);
+
+  animation:modalUp .25s ease;
+}
+
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.modal-close{
+  position:absolute;
+
+  top:12px;
+  right:12px;
+
+  z-index:3;
+
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:rgba(0,0,0,.07);
+
+  font-size:21px;
+
+  color:var(--brown);
+}
+
+.modal-image{
+  width:100%;
+
+  height:auto;
+
+  aspect-ratio:1 / .72;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  margin-bottom:18px;
+}
+
+.modal h2{
+  font-family:"Playfair Display",serif;
+
+  font-size:32px;
+
+  line-height:1.1;
+
+  margin-top:4px;
+}
+
+.modal p{
+  color:var(--muted);
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  margin:10px 0 20px;
+}
+
+.modal .product-bottom{
+  align-items:center;
+}
+
+.modal .btn{
+  min-height:45px;
+
+  padding:11px 15px;
+
+  font-size:12px;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.top-btn{
+  position:fixed;
+
+  right:15px;
+  bottom:15px;
+
+  z-index:900;
+
+  width:45px;
+  height:45px;
+
+  display:grid;
+  place-items:center;
+
+  border:0;
+
+  border-radius:50%;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--chocolate)
+    );
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.18);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.3s;
+}
+
+.top-btn.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(min-width:600px){
+
+  .container{
+    width:calc(100% - 40px);
+  }
+
+  .hero{
+    padding-top:135px;
+  }
+
+  .hero-buttons{
+    flex-direction:row;
+    width:auto;
+  }
+
+  .btn{
+    width:auto;
+  }
+
+  .stats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .review-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .modal{
+    align-items:center;
+    padding:20px;
+  }
+
+  .modal-box{
+    border-radius:30px;
+  }
+}
+
+
+/* =========================================================
+   LARGE TABLET / SMALL DESKTOP
+========================================================= */
+
+@media(min-width:768px){
+
+  .nav-inner{
+    min-height:78px;
+  }
+
+  .menu-btn{
+    display:none;
+  }
+
+  .nav-links{
+    position:static;
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:0;
+
+    background:transparent;
+
+    border:0;
+
+    box-shadow:none;
+
+    backdrop-filter:none;
+  }
+
+  .nav-links a{
+    min-height:auto;
+
+    padding:10px 12px;
+
+    font-size:13px;
+  }
+
+  .nav-cta{
+    padding:10px 18px!important;
+  }
+
+  .hero{
+    min-height:760px;
+
+    padding:
+      150px 0
+      90px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+  }
+
+  .hero h1{
+    font-size:clamp(55px,7vw,82px);
+  }
+
+  .hero-image{
+    aspect-ratio:auto;
+
+    height:520px;
+
+    border-radius:34px;
+  }
+
+  .image-badge{
+    left:-18px;
+    bottom:20px;
+  }
+
+  section{
+    padding:95px 0;
+  }
+
+  .section-head{
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    margin-bottom:45px;
+  }
+
+  .section-description{
+    margin-top:0;
+  }
+
+  .about-grid{
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:60px;
+  }
+
+  .about-image{
+    aspect-ratio:auto;
+    height:500px;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+  }
+
+  .story-image{
+    aspect-ratio:auto;
+    height:480px;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .review-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .cta-box{
+    padding:65px 40px;
+  }
+
+  .cta-box .whatsapp-btn{
+    width:auto;
+  }
+
+  .footer-grid{
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media(min-width:1024px){
+
+  .hero-grid{
+    gap:70px;
+  }
+
+  .hero-image{
+    height:590px;
+  }
+
+  .about-grid,
+  .story-grid{
+    gap:80px;
+  }
+
+  .product-card:hover{
+    transform:translateY(-8px);
+  }
+
+  .product-image{
+    aspect-ratio:auto;
+    height:280px;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media(min-width:1400px){
+
+  .container{
+    max-width:1240px;
+  }
+
+  .hero h1{
+    font-size:88px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:350px){
+
+  .container{
+    width:calc(100% - 22px);
+  }
+
+  .hero h1{
+    font-size:43px;
+
+    letter-spacing:-2px;
+  }
+
+  .hero-text{
+    font-size:14px;
+  }
+
+  .product-name{
+    font-size:20px;
+  }
+
+  .product-info{
+    padding:14px;
+  }
+
+  .view-btn{
+    padding:8px 12px;
+  }
+
+  .modal-box{
+    padding:16px;
+  }
+
+  .modal h2{
+    font-size:28px;
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     NAVBAR
+======================================================= -->
+
+<header class="navbar">
+
+  <div class="container nav-inner">
+
+    <a href="#home" class="logo" aria-label="NutriBite Home">
+
+      <div class="logo-icon">N</div>
+
+      <span>NutriBite</span>
+
+    </a>
+
+
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      type="button"
+    >
+      ☰
+    </button>
+
+
+    <ul class="nav-links" id="navLinks">
+
+      <li><a href="#home">Home</a></li>
+
+      <li><a href="#about">About</a></li>
+
+      <li><a href="#products">Products</a></li>
+
+      <li><a href="#story">Our Story</a></li>
+
+      <li><a href="#reviews">Reviews</a></li>
+
+      <li>
+        <a href="#contact" class="nav-cta">
+          Contact
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main id="home">
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="eyebrow">
+        <span></span>
+        Premium Bakery & Snacks
+      </div>
+
+
+      <h1>
+        Better snacks.<br>
+        <em>Better living.</em>
+      </h1>
+
+
+      <p class="hero-text">
+        Discover delicious biscuits, cookies, thekua,
+        cakes and premium bakery treats made for
+        every happy moment.
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a
+          href="#products"
+          class="btn btn-primary"
+        >
+          Explore Collection →
+        </a>
+
+
+        <a
+          href="#about"
+          class="btn btn-secondary"
+        >
+          Discover NutriBite
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-image-wrap">
+
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1200&q=90"
+        alt="Premium bakery biscuits and cookies"
+        loading="eager"
+        onerror="imageFallback(this)"
+      >
+
+
+      <div class="image-badge">
+
+        <strong>Fresh & Delicious</strong>
+
+        <small>Premium bakery treats</small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     MARQUEE
+======================================================= -->
+
+<div class="marquee">
+
+  <div class="marquee-track">
+
+    <div class="marquee-item">Freshly Baked ✦</div>
+    <div class="marquee-item">Premium Biscuits ✦</div>
+    <div class="marquee-item">Traditional Thekua ✦</div>
+    <div class="marquee-item">Delicious Cookies ✦</div>
+    <div class="marquee-item">Fresh Bakery Treats ✦</div>
+
+    <div class="marquee-item">Freshly Baked ✦</div>
+    <div class="marquee-item">Premium Biscuits ✦</div>
+    <div class="marquee-item">Traditional Thekua ✦</div>
+    <div class="marquee-item">Delicious Cookies ✦</div>
+    <div class="marquee-item">Fresh Bakery Treats ✦</div>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="about" id="about">
+
+  <div class="container about-grid">
+
+    <div>
+
+      <img
+        class="about-image"
+        src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=90"
+        alt="Fresh biscuits and bakery snacks"
+        loading="lazy"
+        onerror="imageFallback(this)"
+      >
+
+    </div>
+
+
+    <div class="about-content">
+
+      <div class="section-label">
+        About NutriBite
+      </div>
+
+
+      <h2 class="section-title">
+        A little sweetness.<br>
+        <em>A lot of happiness.</em>
+      </h2>
+
+
+      <p>
+        NutriBite brings together delicious bakery
+        favourites and traditional snack flavours
+        under one premium brand.
+      </p>
+
+
+      <p>
+        From crunchy biscuits and cookies to
+        traditional thekua and indulgent cakes,
+        there's something for every craving.
+      </p>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>20+</strong>
+          <span>Bakery varieties</span>
+        </div>
+
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Taste focused</span>
+        </div>
+
+        <div class="stat">
+          <strong>Fresh</strong>
+          <span>Bakery experience</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     PRODUCTS
+======================================================= -->
+
+<section class="products" id="products">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-label">
+          Our Collection
+        </div>
+
+        <h2 class="section-title">
+          Delicious things<br>
+          worth sharing.
+        </h2>
+
+      </div>
+
+
+      <p class="section-description">
+        Explore our premium collection of biscuits,
+        cookies, thekua, cakes and bakery favourites.
+      </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filter-buttons">
+
+      <button class="filter-btn active" data-filter="all" type="button">
+        All
+      </button>
+
+      <button class="filter-btn" data-filter="biscuits" type="button">
+        Biscuits
+      </button>
+
+      <button class="filter-btn" data-filter="cookies" type="button">
+        Cookies
+      </button>
+
+      <button class="filter-btn" data-filter="thekua" type="button">
+        Thekua
+      </button>
+
+      <button class="filter-btn" data-filter="cakes" type="button">
+        Cakes
+      </button>
+
+      <button class="filter-btn" data-filter="bakery" type="button">
+        Bakery
+      </button>
+
+    </div>
+
+
+    <!-- PRODUCT GRID -->
+
+    <div class="product-grid">
+
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product-card" data-category="biscuits">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=90"
+          alt="Premium Butter Biscuits"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Biscuits
+          </div>
+
+          <h3 class="product-name">
+            Butter Biscuits
+          </h3>
+
+          <p class="product-description">
+            Crisp, buttery and delicious biscuits
+            perfect for tea-time.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹149</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Butter Biscuits"
+              data-price="₹149"
+              data-image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=90"
+              data-description="Crisp, buttery and delicious biscuits perfect for tea-time."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product-card" data-category="cookies">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=90"
+          alt="Chocolate Chip Cookies"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Cookies
+          </div>
+
+          <h3 class="product-name">
+            Choco Cookies
+          </h3>
+
+          <p class="product-description">
+            Soft and crunchy cookies loaded with
+            delicious chocolate flavour.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹179</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Choco Cookies"
+              data-price="₹179"
+              data-image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=90"
+              data-description="Soft and crunchy cookies loaded with delicious chocolate flavour."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 3 -->
+
+      <article class="product-card" data-category="thekua">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1606313564200-e75d5e30476a?auto=format&fit=crop&w=800&q=90"
+          alt="Classic Thekua"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Traditional
+          </div>
+
+          <h3 class="product-name">
+            Classic Thekua
+          </h3>
+
+          <p class="product-description">
+            A traditional Indian sweet snack with
+            a rich homemade-style taste.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹129</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Classic Thekua"
+              data-price="₹129"
+              data-image="https://images.unsplash.com/photo-1606313564200-e75d5e30476a?auto=format&fit=crop&w=800&q=90"
+              data-description="A traditional Indian sweet snack with a rich homemade-style taste."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 4 -->
+
+      <article class="product-card" data-category="cakes bakery">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=90"
+          alt="Chocolate Cake"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Cakes
+          </div>
+
+          <h3 class="product-name">
+            Chocolate Cake
+          </h3>
+
+          <p class="product-description">
+            Rich, creamy and indulgent chocolate
+            cake for special moments.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹499</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Chocolate Cake"
+              data-price="₹499"
+              data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=90"
+              data-description="Rich, creamy and indulgent chocolate cake for special moments."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 5 -->
+
+      <article class="product-card" data-category="cakes bakery">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=800&q=90"
+          alt="Cream Cupcakes"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Bakery
+          </div>
+
+          <h3 class="product-name">
+            Cream Cupcakes
+          </h3>
+
+          <p class="product-description">
+            Soft bakery cupcakes topped with
+            smooth and creamy frosting.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹199</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Cream Cupcakes"
+              data-price="₹199"
+              data-image="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=800&q=90"
+              data-description="Soft bakery cupcakes topped with smooth and creamy frosting."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 6 -->
+
+      <article class="product-card" data-category="bakery cookies">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=800&q=90"
+          alt="Fudge Brownie"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Bakery
+          </div>
+
+          <h3 class="product-name">
+            Fudge Brownie
+          </h3>
+
+          <p class="product-description">
+            Rich chocolate brownie with a soft,
+            fudgy centre.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹189</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Fudge Brownie"
+              data-price="₹189"
+              data-image="https://images.unsplash.com/photo-1564355808539-22fda35bed7e?auto=format&fit=crop&w=800&q=90"
+              data-description="Rich chocolate brownie with a soft, fudgy centre."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 7 -->
+
+      <article class="product-card" data-category="biscuits bakery">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=90"
+          alt="Tea Time Rusk"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Biscuits
+          </div>
+
+          <h3 class="product-name">
+            Tea-Time Rusk
+          </h3>
+
+          <p class="product-description">
+            Crunchy golden rusk made for your
+            perfect evening tea.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹119</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Tea-Time Rusk"
+              data-price="₹119"
+              data-image="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=90"
+              data-description="Crunchy golden rusk made for your perfect evening tea."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 8 -->
+
+      <article class="product-card" data-category="cookies bakery">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=90"
+          alt="Premium Cookies"
+          loading="lazy"
+          onerror="imageFallback(this)"
+        >
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Cookies
+          </div>
+
+          <h3 class="product-name">
+            Premium Cookies
+          </h3>
+
+          <p class="product-description">
+            Golden baked cookies with a rich,
+            buttery bakery flavour.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">₹219</span>
+
+            <button
+              class="view-btn"
+              type="button"
+              data-name="Premium Cookies"
+              data-price="₹219"
+              data-image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=90"
+              data-description="Golden baked cookies with a rich, buttery bakery flavour."
+            >
+              View
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FEATURES
+======================================================= -->
+
+<section class="features">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-label">
+          Why NutriBite
+        </div>
+
+        <h2 class="section-title">
+          Made for delicious<br>
+          moments.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">🍪</div>
+
+        <h3>Premium Bakery</h3>
+
+        <p>
+          A carefully selected range of
+          bakery favourites and sweet treats.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">🫓</div>
+
+        <h3>Traditional Flavours</h3>
+
+        <p>
+          Classic favourites like thekua
+          with a familiar homemade feeling.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">🎂</div>
+
+        <h3>Celebration Ready</h3>
+
+        <p>
+          Cakes, cupcakes and treats for
+          birthdays and special occasions.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">❤️</div>
+
+        <h3>Made With Care</h3>
+
+        <p>
+          Great taste, beautiful presentation
+          and a premium snacking experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     STORY
+======================================================= -->
+
+<section class="story" id="story">
+
+  <div class="container story-grid">
+
+    <div>
+
+      <div class="section-label">
+        Our Story
+      </div>
+
+      <h2 class="section-title">
+        From traditional<br>
+        favourites to<br>
+        modern bakery.
+      </h2>
+
+      <p>
+        NutriBite brings together familiar
+        flavours and modern bakery favourites
+        in one beautiful collection.
+      </p>
+
+      <p>
+        Whether you're enjoying tea-time biscuits,
+        traditional thekua, cookies or a celebration
+        cake, every bite is meant to create a happy moment.
+      </p>
+
+      <a
+        href="#products"
+        class="btn btn-secondary"
+        style="
+          color:white;
+          border-color:rgba(255,255,255,.25);
+          background:rgba(255,255,255,.06);
+        "
+      >
+        Explore Products →
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <img
+        class="story-image"
+        src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1000&q=90"
+        alt="Premium bakery collection"
+        loading="lazy"
+        onerror="imageFallback(this)"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     REVIEWS
+======================================================= -->
+
+<section class="reviews" id="reviews">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-label">
+          Customer Love
+        </div>
+
+        <h2 class="section-title">
+          Made to make<br>
+          you smile.
+        </h2>
+
+      </div>
+
+      <p class="section-description">
+        A few words from people enjoying
+        their favourite NutriBite treats.
+      </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+      <div class="review">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “The biscuits are perfect with tea.
+          The packaging also looks really premium.”
+        </p>
+
+        <div class="review-user">
+          Ananya
+          <span>Verified Customer</span>
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “I really liked the thekua.
+          It has that traditional homemade taste.”
+        </p>
+
+        <div class="review-user">
+          Rahul
+          <span>Verified Customer</span>
+        </div>
+
+      </div>
+
+
+      <div class="review">
+
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “The cakes and cookies look beautiful
+          and taste even better.”
+        </p>
+
+        <div class="review-user">
+          Priya
+          <span>Verified Customer</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+      <h2>
+        Ready for a<br>
+        delicious bite?
+      </h2>
+
+      <p>
+        Want to know more about our biscuits,
+        thekua, cookies, cakes or bakery collection?
+        Contact NutriBite directly.
+      </p>
+
+      <a
+        class="btn whatsapp-btn"
+        href="https://wa.me/919832838770?text=Hello%20NutriBite%2C%20I%20want%20to%20know%20more%20about%20your%20bakery%20products."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        💬 Chat on WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div
+          class="logo"
+          style="margin-bottom:15px;"
+        >
+
+          <div class="logo-icon">N</div>
+
+          <span>NutriBite</span>
+
+        </div>
+
+        <p class="footer-about">
+          Premium biscuits, cookies, thekua,
+          cakes and delicious bakery treats
+          made for happy moments.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>Explore</h4>
+
+        <ul>
+
+          <li><a href="#home">Home</a></li>
+
+          <li><a href="#about">About</a></li>
+
+          <li><a href="#products">Products</a></li>
+
+          <li><a href="#story">Our Story</a></li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h4>Categories</h4>
+
+        <ul>
+
+          <li><a href="#products">Biscuits</a></li>
+
+          <li><a href="#products">Cookies</a></li>
+
+          <li><a href="#products">Thekua</a></li>
+
+          <li><a href="#products">Cakes</a></li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h4>Contact</h4>
+
+        <ul>
+
+          <li>
+            <a
+              href="https://wa.me/919832838770"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </li>
+
+          <li>
+            <a href="tel:+919832838770">
+              +91 98328 38770
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact">
+              Get in Touch
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="year"></span>
+      NutriBite. All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =======================================================
+     PRODUCT MODAL
+======================================================= -->
+
+<div
+  class="modal"
+  id="productModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal-box"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalName"
+  >
+
+    <button
+      class="modal-close"
+      id="modalClose"
+      aria-label="Close product details"
+      type="button"
+    >
+      ×
+    </button>
+
+
+    <img
+      class="modal-image"
+      id="modalImage"
+      src=""
+      alt="Product"
+    >
+
+
+    <div class="product-category">
+      NutriBite Product
+    </div>
+
+
+    <h2 id="modalName">
+      Product Name
+    </h2>
+
+
+    <p id="modalDescription">
+      Product description.
+    </p>
+
+
+    <div class="product-bottom">
+
+      <span
+        class="price"
+        id="modalPrice"
+      >
+        ₹0
+      </span>
+
+
+      <a
+        id="modalWhatsApp"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+      >
+        Order on WhatsApp →
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     BACK TO TOP
+======================================================= -->
+
+<button
+  class="top-btn"
+  id="topBtn"
+  aria-label="Back to top"
+  type="button"
+>
+  ↑
+</button>
+
+
+<script>
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+const FALLBACK_IMAGE =
+"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=90";
+
+function imageFallback(image){
+
+  if(image.dataset.fallbackUsed){
+    return;
+  }
+
+  image.dataset.fallbackUsed = "true";
+
+  image.src = FALLBACK_IMAGE;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+function closeMenu(){
+
+  navLinks.classList.remove("open");
+
+  menuBtn.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  menuBtn.setAttribute(
+    "aria-label",
+    "Open navigation menu"
+  );
+
+  menuBtn.textContent = "☰";
+}
+
+
+function openMenu(){
+
+  navLinks.classList.add("open");
+
+  menuBtn.setAttribute(
+    "aria-expanded",
+    "true"
+  );
+
+  menuBtn.setAttribute(
+    "aria-label",
+    "Close navigation menu"
+  );
+
+  menuBtn.textContent = "✕";
+}
+
+
+menuBtn.addEventListener(
+  "click",
+  function(){
+
+    if(navLinks.classList.contains("open")){
+      closeMenu();
+    }else{
+      openMenu();
+    }
+
+  }
+);
+
+
+/* Close menu when navigation link is clicked */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+  link.addEventListener(
+    "click",
+    function(){
+      closeMenu();
+    }
+  );
+
+});
+
+
+/* Close menu when clicking outside */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      navLinks.classList.contains("open") &&
+      !navLinks.contains(event.target) &&
+      !menuBtn.contains(event.target)
+    ){
+
+      closeMenu();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PRODUCT FILTER
+========================================================= */
+
+const filterButtons =
+document.querySelectorAll(".filter-btn");
+
+const products =
+document.querySelectorAll(".product-card");
+
+
+filterButtons.forEach(
+  function(button){
+
+    button.addEventListener(
+      "click",
+      function(){
+
+        filterButtons.forEach(
+          function(btn){
+            btn.classList.remove("active");
+          }
+        );
+
+        button.classList.add("active");
+
+
+        const filter =
+        button.getAttribute("data-filter");
+
+
+        products.forEach(
+          function(product){
+
+            const categories =
+            product
+            .getAttribute("data-category")
+            .split(" ");
+
+
+            if(
+              filter === "all" ||
+              categories.includes(filter)
+            ){
+
+              product.style.display = "";
+
+            }else{
+
+              product.style.display = "none";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+const modal =
+document.getElementById("productModal");
+
+const modalClose =
+document.getElementById("modalClose");
+
+const modalImage =
+document.getElementById("modalImage");
+
+const modalName =
+document.getElementById("modalName");
+
+const modalPrice =
+document.getElementById("modalPrice");
+
+const modalDescription =
+document.getElementById("modalDescription");
+
+const modalWhatsApp =
+document.getElementById("modalWhatsApp");
+
+
+document
+.querySelectorAll(".view-btn")
+.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const name =
+      button.getAttribute("data-name");
+
+      const price =
+      button.getAttribute("data-price");
+
+      const image =
+      button.getAttribute("data-image");
+
+      const description =
+      button.getAttribute("data-description");
+
+
+      modalImage.src = image;
+      modalImage.alt = name;
+
+      modalName.textContent = name;
+
+      modalPrice.textContent = price;
+
+      modalDescription.textContent =
+      description;
+
+
+      modalImage.onerror =
+      function(){
+        imageFallback(this);
+      };
+
+
+      const message =
+      `Hello NutriBite, I am interested in ${name} (${price}). Please share more details.`;
+
+
+      modalWhatsApp.href =
+      "https://wa.me/919832838770?text=" +
+      encodeURIComponent(message);
+
+
+      modal.classList.add("show");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+    }
+  );
+
+});
+
+
+function closeModal(){
+
+  modal.classList.remove("show");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+modalClose.addEventListener(
+  "click",
+  closeModal
+);
+
+
+modal.addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === modal){
+      closeModal();
+    }
+
+  }
+);
+
+
+/* ESC closes modal */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closeModal();
+      closeMenu();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topBtn =
+document.getElementById("topBtn");
+
+
+function updateTopButton(){
+
+  if(window.scrollY > 500){
+
+    topBtn.classList.add("show");
+
+  }else{
+
+    topBtn.classList.remove("show");
+
+  }
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  updateTopButton,
+  {passive:true}
+);
+
+
+topBtn.addEventListener(
+  "click",
+  function(){
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+);
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   CLOSE MOBILE MENU WHEN RESIZING TO DESKTOP
+========================================================= */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    if(window.innerWidth >= 768){
+      closeMenu();
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PREVENT HASH JUMP FROM BROKEN LINKS
+========================================================= */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(function(link){
+
+  link.addEventListener(
+    "click",
+    function(event){
+
+      const targetId =
+      this.getAttribute("href");
+
+      if(targetId === "#"){
+        return;
+      }
+
+      const target =
+      document.querySelector(targetId);
+
+      if(target){
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      }
+
+    }
+  );
+
+});
+
+</script>
+
+</body>
+</html>
